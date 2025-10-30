@@ -6,12 +6,22 @@ import './App.css'
 function App() {
   return (
     <>
-    <h1>Tic Tac Toe</h1>
-    <main>
-      <div id="game-container">
+      <main>
+        <div id="game-container">
+          <ol id="players">
 
-      </div>
-    </main>
+            <li>
+              <span className="player">
+              <span className="player-name">Player 1</span>
+              <span className="player-symbol">X</span>
+              </span>
+              <button>Edit</button>
+            </li>
+            
+          </ol>
+          Game Board
+        </div>
+      </main>
     </>
   )
 }
