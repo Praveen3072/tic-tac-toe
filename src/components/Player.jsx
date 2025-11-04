@@ -1,14 +1,17 @@
 import { useState } from "react";
-export default function Palyer({ initialName, symbol ,isActive}) {
+export default function Palyer({ initialName, symbol, isActive, onNameChange }) {
 
     const [playerName, setPlayerName] = useState(initialName);
     const [isEditing, setIsEditing] = useState(false);
     const handleNameEdit = () => {
         setIsEditing(editing => !editing);
+        if (isEditing) {
+            console.log("inPlayer"+symbol);
+            onNameChange(symbol, playerName)
+        }
     };
 
-   const handleNameChange = (event) => {
-        console.log(event);
+    const handleNameChange = (event) => {
         setPlayerName(event.target.value);
     }
 
@@ -17,7 +20,7 @@ export default function Palyer({ initialName, symbol ,isActive}) {
         editablePlayerName = <input type="text" required value={playerName} onChange={handleNameChange} />
     }
     return (
-        <li className={isActive?'active':undefined}>
+        <li className={isActive ? 'active' : undefined}>
             <span className="player">
                 {editablePlayerName}
                 <span className="player-symbol">{symbol}</span>
