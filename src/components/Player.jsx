@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function Palyer({ initialName, symbol }) {
+export default function Palyer({ initialName, symbol ,isActive}) {
 
     const [playerName, setPlayerName] = useState(initialName);
     const [isEditing, setIsEditing] = useState(false);
@@ -17,8 +17,8 @@ export default function Palyer({ initialName, symbol }) {
         editablePlayerName = <input type="text" required value={playerName} onChange={handleNameChange} />
     }
     return (
-        <li>
-            <span>
+        <li className={isActive?'active':undefined}>
+            <span className="player">
                 {editablePlayerName}
                 <span className="player-symbol">{symbol}</span>
             </span>
